@@ -1,5 +1,67 @@
+
+:root {
+  /* palette colors */
+  /* from light to dark */
+  --color1: #E8F1F2;
+  --color2: #B3EFB2;
+  --color3: #7A9E7E;
+  --color4: #31493C;
+  --color5: #001A23;
+}
+
+
 .track {
       border-radius: 50%;
-      height: 30px;
-      width: 30px;
+      height: 50px;
+      width: 50px;
+
+}
+
+.row{
+        display:flex;
+    flex-direction:row;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.div1{
+    width: 20%;
+    display:flex;
+    justify-content: center;
+    flex-flow: row wrap ;
+  flex: 1 1 0px;
+  border-radius: 16px;
+padding:  12px 12px 8px 8px;
+}
+.spacer1{
+    width: 8px;
+}
+#div1p{
+
+}
+
+#div1u{
+    background-color: var(--color3);
+
+}
+#div1p{
+        background-color: var(--color2)
+}
+#div1z{
+        background-color: var(--color4);
+}
+
+body{
+    background-color: var(--color1);
+
+}
+h1{
+    color: var(--color5);
+}
+p{
+    color: var(--color4);
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
