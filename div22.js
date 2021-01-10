@@ -78,9 +78,9 @@ function updateScatter() {
             .append("circle").attr("cx", x(d[1]) + size / 2).attr("cy", y(d[2]) + size / 2).attr("r", size / 2)
 
     });
-    dots.append("a").attr("href", d => d[0].link).append("svg:image")
+    dots.append("svg:image")
         .attr("xlink:href", function (d) { return d[0]["img"] })
-
+        .attr("onclick", d => 'scrollAndShowTrack("' + d[0].id + '")')
         .attr("height", size)
         .attr("name", (d) => d["title"])
         .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
@@ -91,4 +91,9 @@ function updateScatter() {
         .attr("y", function (d) {
             return y(d[2])
         }).append("title").html(function (d) { return d[0]["author"] + " - " + d[0]["name"] })
+}
+
+function scrollAndShowTrack(trackid) {
+    d3.select("#singleInfo").node().scrollIntoView(true)
+    showTrack(trackid)
 }
