@@ -2,13 +2,53 @@
 :root {
   /* palette colors */
   /* from light to dark */
-  --color1: #E8F1F2;
-  --color2: #B3EFB2;
-  --color3: #7A9E7E;
-  --color4: #31493C;
-  --color5: #001A23;
+  --color0: #ffffff;
+  --color1: #FFD166;
+  --color2: #eb8ea3;
+  --color3: #06D6A0;
+  --color4: #118AB2;
+  --color5: #073B4C;
 }
 
+#radios2{
+     display:flex;
+    flex-flow:row wrap;
+}
+
+
+.spacer2{
+    width: 24px;
+}
+.selectedTrack{
+       box-sizing: border-box;
+    border-style: solid;
+    border-width: 6px;
+    border-color: var(--color5);
+
+}
+
+#singleInfo{
+    display:flex;
+    flex-flow: row wrap;
+    padding-right: 32px;
+    padding-left: 24px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-radius: 16px;
+        background-color: var(--color1);
+}
+
+
+
+#singleInfoWrap{
+    display:flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    font-size: large;
+}
+.circle{
+    border-radius: 50%;
+}
 
 .track {
       border-radius: 50%;
@@ -17,11 +57,19 @@
 
 }
 
+.smalltrack {
+      border-radius: 50%;
+      height: 15px;
+      width: 15px;
+
+}
+
 .row{
         display:flex;
-    flex-direction:row;
-    padding-left: 4px;
-    padding-right: 4px;
+    flex-flow: row wrap;
+    padding-top: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 .div1{
@@ -36,23 +84,20 @@ padding:  12px 12px 8px 8px;
 .spacer1{
     width: 8px;
 }
+
 #div1p{
-
+        background-color: var(--color2)
 }
-
 #div1u{
     background-color: var(--color3);
 
-}
-#div1p{
-        background-color: var(--color2)
 }
 #div1z{
         background-color: var(--color4);
 }
 
 body{
-    background-color: var(--color1);
+    background-color: var(--color0);
 
 }
 h1{
@@ -64,4 +109,102 @@ p{
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+ /* Customize the label (the radio) */
+.radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+ /* Customize the label (the tickbox) */
+.tickbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.tickbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  opacity: .2;
+  background-color: var(--color3);
+}
+.tickbox{
+    padding-right: 12px;
+
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color4);
+}
+
+/* On mouse-over, add a grey background color */
+.tickbox:hover input ~ .checkmark {
+    opacity: 1;
+  background-color:var(--color4);
+}
+
+/* When the checkbox is checked, add a blue background */
+.tickbox input:checked ~ .checkmark {
+     opacity: 1;
+  background-color: var(--color5);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.tickbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.tickbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

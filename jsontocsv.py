@@ -4,7 +4,7 @@ import pandas as pd
 import os
 from pandas import DataFrame as df
 
-authkey = "BQBaSGOamQ1XqGW5nEFMatlBUMiGOX64nod-400n2_2ZURoWIYLiD_56aXPMQdPV0WBbXdWJbYXOgtD_7J8BfsHw30XzrgEU7nRnKaCB-InFoO-Uj86GgdRkTbGyHtt2TU7lLRY6eYJWeeiNq-IZOJdsJw8ssgSmhafGVsOQ8GUJZYPWoW9pUMK1dQ1op5so9imaAg-mFTsKAf3dlaQchtPl-8LZ7TPr5WgetsAcneMZWT-mO3jK3Pf8HtovenTI9MzUKfWBMABTAQ"
+authkey = "BQAV3iDFLUAUxN5RUn-7Te0gUYFch3Q9Rcf5t4L3M12CvjACde36_4wK0TtT3uEEUWBI10fzfAkmDZMupRBRFXgrAxOV9PgXxyOXOZwFaQlC2-WdjVhFLn5k44XQIdRuMdKySizLO_J2XMFpZ1kwR0Bm5-Lh43rZfCfQ_cWfDo_nJEKup4T6sb4QK59EOQvCOObC1CfFhkciofC73j9gV5rE4v-QzSPhEe3L3VXR4teDnILbJFGNLJ0r1oQD02fO7-1kFlJQb0Xt0w"
 command1 = 'curl -X "GET" "https://api.spotify.com/v1/audio-features/'
 # command + id + command2 + authkey
 command2 = '" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer '
@@ -28,7 +28,8 @@ dtypes = np.dtype([
     ('valence', float),
     ('tempo', float),
     ('duration_ms', float),
-
+    ('author', str),
+    ('album', str),
 ])
 data = np.empty(0, dtype=dtypes)
 frame = pd.DataFrame(data)
@@ -62,6 +63,8 @@ for person in ppl:
         liveness = information["liveness"]
         valence = information["valence"]
         tempo = information["tempo"]
+        album = track["album"]["name"]
+        author = track["album"]["artists"][0]["name"]
         duration_ms = information["duration_ms"]
 
         line = {"id": identifier, "name": name,
@@ -76,6 +79,8 @@ for person in ppl:
                 "valence": valence,
                 "tempo": tempo,
                 "duration_ms": duration_ms,
+                "author": author,
+                "album": album
                 }
 
         frame = frame.append(line, ignore_index=True)
