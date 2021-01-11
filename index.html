@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
     <script src="div1.js"></script>
     <script src="div2.js"></script>
     <script src="div22.js"></script>
@@ -19,7 +19,79 @@
         <p>
             Description1
         </p>
+        <div id="div2">
+            <div id="radios2wrap">
+                <div id="radios2">
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('danceability')">Danceability
+                            <input type="checkbox">
+                            <span class="checkmark">
+                            </span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('energy')">
+                            <div class=spacer2></div>Energy
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('loudness')">Loudness
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('speechiness')">Speechiness
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('acousticness')">Acousticness
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('instrumentalness')">Instrumentalness
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('liveness')">Liveness
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('valence')">Valence
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('tempo')">Tempo
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="tickboxwrap">
+                        <label class="tickbox" onclick="ticks2('duration_ms')">Duration
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class=spacer1></div>
 
+                </div>
+            </div>
+            <div id="distributions">
+
+            </div>
+        </div>
         <div class="row" id="div1">
             <div class="div1" id="div1p">
 
@@ -48,70 +120,11 @@
             Description2
         </p>
 
-        <div id="div2">
-            <div id="radios2">
-                <label class="tickbox" onclick="ticks2('danceability')">Danceability
 
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('energy')">
-                    <div class=spacer2></div>Energy
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('loudness')">Loudness
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('speechiness')">Speechiness
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('acousticness')">Acousticness
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('instrumentalness')">Instrumentalness
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('liveness')">Liveness
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('valence')">Valence
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('tempo')">Tempo
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-                <label class="tickbox" onclick="ticks2('duration_ms')">Duration
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class=spacer1></div>
-
-            </div>
-
-            <div id="distributions">
-
-            </div>
-        </div>
         <div id="div22">
             <div id="d22sels">
                 <div id="d22sel1">
+                    x axis:
                     <select name="xval" id="d22xval" onchange="updateScatter()">
                         <option value="danceability">Danceability</option>
                         <option value="energy">Energy</option>
@@ -126,6 +139,7 @@
                     </select>
                 </div>
                 <div id="d22sel2">
+                    y axis:
                     <select name="yval" id="d22yval" onchange="updateScatter()">
                         <option value="danceability">Danceability</option>
                         <option value="energy">Energy</option>
@@ -140,8 +154,9 @@
                     </select>
                 </div>
             </div>
-
-            <div id="d22scatter">
+            <div id="d22scatterwrap">
+                <div id="d22scatter">
+                </div>
             </div>
         </div>
         <div class="section">

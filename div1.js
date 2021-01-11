@@ -12,7 +12,7 @@ d3.csv("data.csv", function (track) {
     box.select("#div1" + track["whose"])
         .append("img")
         .attr("id", "id" + track["id"])
-        .attr("onclick", 'showTrack("' + track.id + '")')
+        .attr("onclick", 'scrollAndShowTrack("' + track.id + '")')
         .attr("class", "track")
         .attr("title", track["name"])
         .attr("src", track["img"])
@@ -38,9 +38,9 @@ function showTrack(trackid) {
 
 
     row = tbl.append("tr").attr("style", "width:70%;")
-    row.append("th").text(track.name).attr("style", "text-align:left;")
+    row.append("th").text(track.name).attr("style", "text-align:left;color:black;")
     row = tbl.append("tr").attr("style", "width:70%;")
-    row.append("th").text(track.author).attr("style", "text-align:left;")
+    row.append("th").text(track.author).attr("style", "text-align:left;color:black;")
     row = tbl.append("tr").attr("style", "width:70%;")
     row.append("td").text("Album")
     row.append("td").text(track.album).attr("style", "text-align:right;")

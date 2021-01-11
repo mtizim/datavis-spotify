@@ -19,6 +19,11 @@ function ticks2(str) {
     }
     // redraw
     drawPlot()
+    n = d3.select("#chart" + str).node();
+    if (n === null) {
+        return;
+    }
+    n.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
 }
 
 function drawPlot() {
