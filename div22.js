@@ -98,6 +98,7 @@ function updateScatter() {
         //     .attr("cx", (d) => (d22x(d[1]) + size / 2))
         //     .attr("cy", (d) => (d22y(d[2]) + size / 2))
         //     .attr("r", size / 2)
+
         var dots = d22svg.selectAll('g')
             .data(data)
             .enter()
@@ -141,11 +142,14 @@ function updateScatter() {
         //         .attr("cy", d22y(d[2]) + size / 2)
         //         .attr("r", size / 2)
 
-        // });
+        //     // });
 
 
         d22svg.selectAll("image")
+            .attr("xlink:href", function (d) { return d[0]["img"] })
             .attr("onclick", d => 'scrollAndShowTrack("' + d[0].id + '")')
+            .attr("name", (d) => d["title"])
+            .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
             .data(data)
             .transition()
             .duration(500)
