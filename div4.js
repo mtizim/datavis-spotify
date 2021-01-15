@@ -1,8 +1,3 @@
-// set the dimensions and margins of the graph
-var margin4 = {top: 10, right: 30, bottom: 30, left: 40},
-    width4 = 900 - margin4.left - margin4.right,
-    height4 = 600 - margin4.top - margin4.bottom;
-
 var vals4 = ["danceability", "energy", "speechiness", "acousticness", "instrumentalness", "liveness", "valence"];
 
 var selected1 = []
@@ -44,8 +39,15 @@ d3.csv("data.csv", function (data) {
 
 
 function drawPlot4() {
-
+    // set the dimensions and margins of the graph
     d3.select("#violinplot").remove()
+
+    if(selected1.length === 0) return;
+
+    var margin4 = {top: 30, right: 30, bottom: 40, left: 50},
+        width4 = 500 + 100*selected1.length - margin4.left - margin4.right,
+        height4 = 600 - margin4.top - margin4.bottom;
+
 
 // append the svg object to the body of the page
     var svg = d3.select("#div4")
@@ -67,10 +69,11 @@ function drawPlot4() {
     var x = d3.scaleBand()
         .range([0, width4])
         .domain(selected1)
-        .padding(0)     // This is important: it is the space between 2 groups. 0 means no padding. 1 is the maximum.
+        .padding(0.05)     // This is important: it is the space between 2 groups. 0 means no padding. 1 is the maximum.
     svg.append("g")
         .attr("transform", "translate(0," + height4 + ")")
         .call(d3.axisBottom(x))
+        .style("font-size","16px")
 
     // Features of the histogram
     var histogram = d3.histogram()
@@ -105,7 +108,7 @@ function drawPlot4() {
     // The maximum width of a violin must be x.bandwidth = the width dedicated to a group
     var xNum = d3.scaleLinear()
         .range([0, x.bandwidth()])
-        .domain([-maxNum -1, maxNum + 1])
+        .domain([-maxNum, maxNum ])
 
     // Add the shape to this svg!
     svg
@@ -119,9 +122,9 @@ function drawPlot4() {
         .append("path")
         .datum(function (d) {
             return (d.value)
-        })     // So now we are working bin per bin
+        })
         .style("stroke", "none")
-        .style("fill", "#6666ff")
+        .style("fill","#0099cc")
         .attr("d", d3.area()
             .x0(function (d) {
                 return (xNum(-d.length))
