@@ -121,45 +121,45 @@ function updateScatter() {
             })
         tmp.append("title").html(function (d) { return d[0]["author"] + " - " + d[0]["name"] })
         _d22create = false
-    } else {
-        d22svg.select("#d22xaxis")
-            .transition()
-            .duration(500)
-            .attr("opacity", "1")
-            .call(d3.axisBottom(d22x))
-        d22svg.select("#d22yaxis")
-            .transition()
-            .duration(500)
-            .attr("opacity", "1")
-            .call(d3.axisLeft(d22y))
-
-        data.forEach(d => {
-            d22svg.selectAll("#scatterCircle" + d[0].id)
-                .selectAll("circle")
-                .transition()
-                .duration(500)
-                .attr("cx", d22x(d[1]) + size / 2)
-                .attr("cy", d22y(d[2]) + size / 2)
-                .attr("r", size / 2)
-
-        });
-
-
-        d22svg.selectAll("image")
-            .attr("xlink:href", function (d) { return d[0]["img"] })
-            .attr("onclick", d => 'scrollAndShowTrack("' + d[0].id + '")')
-            .attr("name", (d) => d["title"])
-            .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
-            .data(data)
-            .transition()
-            .duration(500)
-            .attr("x", function (d) {
-                return d22x(d[1])
-            })
-            .attr("y", function (d) {
-                return d22y(d[2])
-            })
-        _d22create = false
+        updateScatter();
     }
+    d22svg.select("#d22xaxis")
+        .transition()
+        .duration(500)
+        .attr("opacity", "1")
+        .call(d3.axisBottom(d22x))
+    d22svg.select("#d22yaxis")
+        .transition()
+        .duration(500)
+        .attr("opacity", "1")
+        .call(d3.axisLeft(d22y))
+
+    data.forEach(d => {
+        d22svg.selectAll("#scatterCircle" + d[0].id)
+            .selectAll("circle")
+            .transition()
+            .duration(500)
+            .attr("cx", d22x(d[1]) + size / 2)
+            .attr("cy", d22y(d[2]) + size / 2)
+            .attr("r", size / 2)
+
+    });
+
+
+    d22svg.selectAll("image")
+        .attr("xlink:href", function (d) { return d[0]["img"] })
+        .attr("onclick", d => 'scrollAndShowTrack("' + d[0].id + '")')
+        .attr("name", (d) => d["title"])
+        .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
+        .data(data)
+        .transition()
+        .duration(500)
+        .attr("x", function (d) {
+            return d22x(d[1])
+        })
+        .attr("y", function (d) {
+            return d22y(d[2])
+        })
+    _d22create = false
 }
 
