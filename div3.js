@@ -3,10 +3,15 @@
 RadarChart();
 
 function RadarChart() {
+
+	var margin3 = {top: 100, right: 100, bottom: 100, left: 100},
+				width3 = Math.min(700, window.innerWidth - 10),
+				height3 = Math.min(width, window.innerHeight);
+					
 	var cfg = {
 	 margin3: {top: 100, right: 100, bottom: 100, left: 100}, //The margins of the SVG
 	 w: Math.min(700, window.innerWidth - 10) - margin3.left - margin3.right,				//Width of the circle
-	 h: Math.min(width, window.innerHeight - margin3.top - margin3.bottom - 20),
+	 h: Math.min(width3, window.innerHeight - margin3.top - margin3.bottom - 20),
 	 levels: 7,				//How many levels or inner circles should there be drawn
 	 maxValue: 0.7, 			//What is the value that the biggest circle will represent
 	 labelFactor: 1.2, 	//How much farther than the radius of the outer circle should the labels be placed
@@ -19,7 +24,7 @@ function RadarChart() {
 	 color: d3.scale.ordinal().range(["#eb8ea3","#06D6A0","#118AB2"])	//Color function
     };
 
-    
+
     var data3 = [
         [//p
             {axis:"danceability",value:0.578},
@@ -56,7 +61,6 @@ function RadarChart() {
 	var rScale = d3.scale.linear()
 		.range([0, radius])
 		.domain([0, maxValue]);
-		
 	
 	// Create the container SVG and g
 	
