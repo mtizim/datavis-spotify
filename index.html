@@ -21,10 +21,10 @@
             <center>Spotify playlist overview</center>
         </h1>
         <p>
-            Hello! This is a Data Visulization Techniques project made by Mateusz Ziemła, Krzysztof Wolny and Przemysław Olender.
-            Using Spotify API we have analyzed our playlists with music we listened to the most in 2020. 
+            <center>Hello! This is a Data Visulization Techniques project made by Mateusz Ziemła, Krzysztof Wolny and Przemysław Olender.
+            Using Spotify API we have analyzed our playlists with music we listened to the most in 2020.</center> 
             
-            <br>Every track is rated by Spotify in various categories, we have prepared plots describing disrtibutions of each feature.
+            
         </p>
 
         <div class="row" id="div1">
@@ -45,7 +45,61 @@
 
             </div>
         </div>
-        
+
+        <div id="second">
+            <br>
+            <h1>
+                <center>Scatterplot</center>
+            </h1>
+            <p>
+                <center>In this section you can compare two selected features and explore correlations between them in our favourite tracks.
+                    </center>
+            </p>
+    
+    
+            <div id="div22">
+                <div id="d22sels">
+                    <div id="d22sel1">
+                        x axis:
+                        <select name="xval" id="d22xval" onchange="updateScatter()">
+                            <option value="danceability">Danceability</option>
+                            <option value="energy">Energy</option>
+                            <option value="loudness">Loudness</option>
+                            <option value="speechiness">Speechiness</option>
+                            <option value="acousticness">Acousticness</option>
+                            <option value="instrumentalness">Instrumentalness</option>
+                            <option value="liveness">Liveness</option>
+                            <option value="valence">Valence</option>
+                            <option value="tempo">Tempo</option>
+                            <option value="duration">Duration</option>
+                        </select>
+                    </div>
+                    <div id="d22sel2">
+                        y axis:
+                        <select name="yval" id="d22yval" onchange="updateScatter()">
+                            <option value="danceability">Danceability</option>
+                            <option value="energy">Energy</option>
+                            <option value="loudness">Loudness</option>
+                            <option value="speechiness">Speechiness</option>
+                            <option value="acousticness">Acousticness</option>
+                            <option value="instrumentalness">Instrumentalness</option>
+                            <option value="liveness">Liveness</option>
+                            <option value="valence">Valence</option>
+                            <option value="tempo">Tempo</option>
+                            <option value="duration">Duration</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="d22scatterwrap">
+                    <div id="d22scatter">
+                    </div>
+                </div>
+            </div>
+    </div>
+        <br>
+        <center><h1>Distributions</h1></center>
+        <center>Every track is rated by Spotify in various categories, we have prepared plots describing disrtibutions of each feature.</center>
+        <br>
         <div id="div2">
             <div id="radios2wrap">
                 <div id="radios2">
@@ -124,11 +178,13 @@
     </div>
     
         <div class="section">
+            <br>
             <h1>
                 <center>Radar chart
             </h1>
             <p>
-                On this chart you can what is the average of each feature of our favourite tracks, and which feature is the most important for each person.
+                <center>On this chart you can what is the average of each feature of our favourite tracks, and which feature is the most important for each person.
+                    </center>
             </p>
             <center><div id="div3"></div></center>
                 
@@ -144,9 +200,9 @@
                 <center>Violinplot</center>
             </h1>
             <p>
-                Here, you can see the distribution of data for each category.
+                <center>Here, you can see the distribution of data for each category.</center>
             </p>
-            <center><div id="div4">
+            <div id="div4">
 
                 <div id="radios4">
                     <div class=spacer4>
@@ -194,57 +250,10 @@
 
                 </div>
 
-            </div></center>
+            </div>
         </div>
 
-        <div id="second">
-            <h1>
-                <center>Scatterplot</center>
-            </h1>
-            <p>
-                In this section you can compare two selected features and explore correlations between them in our favourite tracks.
-            </p>
-    
-    
-            <div id="div22">
-                <div id="d22sels">
-                    <div id="d22sel1">
-                        x axis:
-                        <select name="xval" id="d22xval" onchange="updateScatter()">
-                            <option value="danceability">Danceability</option>
-                            <option value="energy">Energy</option>
-                            <option value="loudness">Loudness</option>
-                            <option value="speechiness">Speechiness</option>
-                            <option value="acousticness">Acousticness</option>
-                            <option value="instrumentalness">Instrumentalness</option>
-                            <option value="liveness">Liveness</option>
-                            <option value="valence">Valence</option>
-                            <option value="tempo">Tempo</option>
-                            <option value="duration">Duration</option>
-                        </select>
-                    </div>
-                    <div id="d22sel2">
-                        y axis:
-                        <select name="yval" id="d22yval" onchange="updateScatter()">
-                            <option value="danceability">Danceability</option>
-                            <option value="energy">Energy</option>
-                            <option value="loudness">Loudness</option>
-                            <option value="speechiness">Speechiness</option>
-                            <option value="acousticness">Acousticness</option>
-                            <option value="instrumentalness">Instrumentalness</option>
-                            <option value="liveness">Liveness</option>
-                            <option value="valence">Valence</option>
-                            <option value="tempo">Tempo</option>
-                            <option value="duration">Duration</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="d22scatterwrap">
-                    <div id="d22scatter">
-                    </div>
-                </div>
-            </div>
-    </div>
+        
 </body>
 
 </html>
