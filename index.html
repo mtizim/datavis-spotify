@@ -21,10 +21,11 @@
             <center>Spotify playlist overview</center>
         </h1>
         <p>
-            <center>Hello! This is a Data Visulization Techniques project made by Mateusz Ziemła, Krzysztof Wolny and Przemysław Olender.
-            Using Spotify API we have analyzed our playlists with music we listened to the most in 2020.</center> 
-            
-            
+            <center>Hello! This is a Data Visulization Techniques project made by Mateusz Ziemła, Krzysztof Wolny and
+                Przemysław Olender.
+                Using Spotify API we have analyzed our playlists with music we listened to the most in 2020.</center>
+
+
         </p>
 
         <div class="row" id="div1">
@@ -52,11 +53,12 @@
                 <center>Scatterplot</center>
             </h1>
             <p>
-                <center>In this section you can compare two selected features and explore correlations between them in our favourite tracks.
-                    </center>
+                <center>In this section you can compare two selected features and explore correlations between them in
+                    our favourite tracks.
+                </center>
             </p>
-    
-    
+
+
             <div id="div22">
                 <div id="d22sels">
                     <div id="d22sel1">
@@ -95,10 +97,13 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
         <br>
-        <center><h1>Distributions</h1></center>
-        <center>Every track is rated by Spotify in various categories, we have prepared plots describing disrtibutions of each feature.</center>
+        <center>
+            <h1>Distributions</h1>
+        </center>
+        <center>Every track is rated by Spotify in various categories, we have prepared plots describing disrtibutions
+            of each feature.</center>
         <br>
         <div id="div2">
             <div id="radios2wrap">
@@ -173,87 +178,34 @@
 
             </div>
         </div>
-        
+
 
     </div>
-    
-        <div class="section">
-            <br>
-            <h1>
-                <center>Radar chart
-            </h1>
-            <p>
-                <center>On this chart you can what is the average of each feature of our favourite tracks, and which feature is the most important for each person.
-                    </center>
-            </p>
-            <center><div id="div3"></div></center>
-                
-            
-            <script>			
-                RadarChart();
-            </script>
-                
-                
-        </div>
-        <div class="section">
-            <h1>
-                <center>Violinplot</center>
-            </h1>
-            <p>
-                <center>Here, you can see the distribution of data for each category.</center>
-            </p>
-            <div id="div4">
 
-                <div id="radios4">
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('danceability')">Danceability
-                                <input type="checkbox">
-                                <span class="checkmark4"></span>
-                            </label>
-                    </div>
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('energy')">Energy
-                            <input type="checkbox">
-                            <span class="checkmark4"></span>
-                        </label>
-                    </div>
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('speechiness')">Speechiness
-                            <input type="checkbox">
-                            <span class="checkmark4"></span>
-                        </label>
-                    </div>
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('acousticness')">Acousticness
-                            <input type="checkbox">
-                            <span class="checkmark4"></span>
-                        </label>
-                    </div>
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('instrumentalness')">Instrumentalness
-                            <input type="checkbox">
-                            <span class="checkmark4"></span>
-                        </label>
-                    </div>
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('liveness')">Liveness
-                            <input type="checkbox">
-                            <span class="checkmark4"></span>
-                        </label>
-                    </div>
-                    <div class=spacer4>
-                        <label class="tickbox4" onclick="ticks4('valence')">Valence
-                            <input type="checkbox">
-                            <span class="checkmark4"></span>
-                        </label>
-                    </div>
+    <div class="section">
+        <br>
+        <h1>
+            <center>Radar chart
+        </h1>
+        <p>
+            <center>On this chart you can what is the average of each feature of our favourite tracks, and which feature
+                is the most important for each person.
+            </center>
+        </p>
+        <center>
+            <div id="div3"></div>
+        </center>
 
-                </div>
 
-            </div>
-        </div>
+        <script>
+            RadarChart();
+        </script>
 
-        
+
+    </div>
+
+
+
 </body>
 
 </html>
