@@ -26,21 +26,21 @@ function RadarChart() {
 			{ axis: "danceability", value: 0.578 },
 			{ axis: "energy", value: 0.648 },
 			{ axis: "acousticness", value: 0.320 },
-			{ axis: "instrumantalness", value: 0.038 },
+			{ axis: "instrumentalness", value: 0.038 },
 			{ axis: "liveness", value: 0.236 },
 			{ axis: "valence", value: 0.403 }
 		], [//u
 			{ axis: "danceability", value: 0.529 },
 			{ axis: "energy", value: 0.439 },
 			{ axis: "acousticness", value: 0.596 },
-			{ axis: "instrumantalness", value: 0.083 },
+			{ axis: "instrumentalness", value: 0.083 },
 			{ axis: "liveness", value: 0.144 },
 			{ axis: "valence", value: 0.337 }
 		], [//z
 			{ axis: "danceability", value: 0.478 },
 			{ axis: "energy", value: 0.667 },
 			{ axis: "acousticness", value: 0.195 },
-			{ axis: "instrumantalness", value: 0.463 },
+			{ axis: "instrumentalness", value: 0.463 },
 			{ axis: "liveness", value: 0.218 },
 			{ axis: "valence", value: 0.389 }
 		]
