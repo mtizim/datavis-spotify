@@ -127,6 +127,7 @@ function drawPlot4() {
         })
         .style("stroke", "none")
         .style("fill","#0099cc")
+        .attr("opacity", ".5")
         .attr("d", d3.area()
             .x0(function (d) {
                 return (xNum(-d.length))
