@@ -3,7 +3,7 @@ var vals4 = ["danceability", "energy", "speechiness", "acousticness", "instrumen
 var selected1 = []
 function ticks4(str) {
     var checked = [];
-    d3.selectAll(".tickbox4").selectAll("input").each(function (e) {
+    d3.selectAll(".tickbox4").selectAll("input").each(function () {
         checked.push(this.checked);
     })
 
@@ -12,7 +12,7 @@ function ticks4(str) {
     for (let i = 0; i < checked.length; i++) {
         if (checked[i] ) {
             selected1.push(vals4[i]);
-        };
+        }
     }
     drawPlot4()
 
@@ -39,13 +39,15 @@ d3.csv("data.csv", function (data) {
 
 
 function drawPlot4() {
-    // set the dimensions and margins of the graph
+    // remove last plot
     d3.select("#violinplot").remove()
 
+    // if nothing selected than don't draw
     if(selected1.length === 0) return;
 
+    // set the dimensions and margins of the graph
     var margin4 = {top: 30, right: 30, bottom: 40, left: 50},
-        width4 = 500 + 100*selected1.length - margin4.left - margin4.right,
+        width4 = 500 + 170*selected1.length - margin4.left - margin4.right,
         height4 = 600 - margin4.top - margin4.bottom;
 
 
@@ -61,15 +63,15 @@ function drawPlot4() {
 
     // Build and Show the Y scale
     var y = d3.scaleLinear()
-        .domain([0, 1])          // Note that here the Y scale is set manually
+        .domain([0, 1])          // Y axis is [0,1]
         .range([height4, 0])
     svg.append("g").call(d3.axisLeft(y))
 
-    // Build and Show the X scale. It is a band scale like for a boxplot: each group has an dedicated RANGE on the axis. This range has a length of x.bandwidth
+    // Build and Show the X scale.
     var x = d3.scaleBand()
         .range([0, width4])
         .domain(selected1)
-        .padding(0.05)     // This is important: it is the space between 2 groups. 0 means no padding. 1 is the maximum.
+        .padding(0.05)     // space between 2 groups. 0 means no padding. 1 is the maximum.
     svg.append("g")
         .attr("transform", "translate(0," + height4 + ")")
         .call(d3.axisBottom(x))
@@ -78,7 +80,7 @@ function drawPlot4() {
     // Features of the histogram
     var histogram = d3.histogram()
         .domain(y.domain())
-        .thresholds(y.ticks(20))    // Important: how many bins approx are going to be made? It is the 'resolution' of the violin plot
+        .thresholds(y.ticks(20))
         .value(d => d)
 
 
@@ -114,11 +116,11 @@ function drawPlot4() {
     svg
         .selectAll("myViolin")
         .data(sumstat)
-        .enter()        // So now we are working group per group
+        .enter()
         .append("g")
         .attr("transform", function (d) {
             return ("translate(" + x(d.key) + " ,0)")
-        }) // Translation on the right to be at the group position
+        })
         .append("path")
         .datum(function (d) {
             return (d.value)
@@ -135,7 +137,7 @@ function drawPlot4() {
             .y(function (d) {
                 return (y(d.x0))
             })
-            .curve(d3.curveCatmullRom)    // This makes the line smoother to give the violin appearance. Try d3.curveStep to see the difference
+            .curve(d3.curveCatmullRom)    // This makes the line smoother to give the violin appearance.
         )
 
 }
