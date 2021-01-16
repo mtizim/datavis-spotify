@@ -118,15 +118,15 @@ function updateScatter() {
             .attr("name", (d) => d["title"])
             .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
             .attr("width", size)
-            .on("mouseover", function (d) {
+            .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("<b>" + d["0"]["name"] + "</b><br/>" +
+                div.html("<b>" + d[0]["name"] + "</b><br/>" +
                     capitalize(xvalname) + ": " + d[1] + "</br > " +
                     capitalize(yvalname) + ": " + d[2] + "</br > ")
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY - 28) + "px");
             })
             .on("mouseout", function (d) {
                 div.transition()
