@@ -87,17 +87,17 @@ function updateScatter() {
             .attr("id", "d22yaxis")
             .call(d3.axisLeft(d22y));
 
-        // d22svg.selectAll("defs")
-        //     .data(data)
-        //     .enter()
-        //     .append("clipPath")
-        //     .attr("id", (d) => ("scatterCircle" + d[0].id))
-        //     .append("circle")
-        //     .transition()
-        //     .duration(500)
-        //     .attr("cx", (d) => (d22x(d[1]) + size / 2))
-        //     .attr("cy", (d) => (d22y(d[2]) + size / 2))
-        //     .attr("r", size / 2)
+        d22svg.selectAll("defs")
+            .data(data)
+            .enter()
+            .append("clipPath")
+            .attr("id", (d) => ("scatterCircle" + d[0].id))
+            .append("circle")
+            .transition()
+            .duration(500)
+            .attr("cx", (d) => (d22x(d[1]) + size / 2))
+            .attr("cy", (d) => (d22y(d[2]) + size / 2))
+            .attr("r", size / 2)
 
         var dots = d22svg.selectAll('g')
             .data(data)
@@ -109,7 +109,7 @@ function updateScatter() {
             .attr("onclick", d => 'scrollAndShowTrack("' + d[0].id + '")')
             .attr("height", size)
             .attr("name", (d) => d["title"])
-            // .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
+            .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
             .attr("width", size)
         tmp.transition()
             .duration(500)
@@ -133,16 +133,16 @@ function updateScatter() {
             .attr("opacity", "1")
             .call(d3.axisLeft(d22y))
 
-        // data.forEach(d => {
-        //     d22svg.selectAll("#scatterCircle" + d[0].id)
-        //         .transition()
-        //         .delay(500)
-        //         .duration(500)
-        //         .attr("cx", d22x(d[1]) + size / 2)
-        //         .attr("cy", d22y(d[2]) + size / 2)
-        //         .attr("r", size / 2)
+        data.forEach(d => {
+            d22svg.selectAll("#scatterCircle" + d[0].id)
+                .selectAll("circle")
+                .transition()
+                .duration(500)
+                .attr("cx", d22x(d[1]) + size / 2)
+                .attr("cy", d22y(d[2]) + size / 2)
+                .attr("r", size / 2)
 
-        //     // });
+        });
 
 
         d22svg.selectAll("image")
