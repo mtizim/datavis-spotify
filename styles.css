@@ -242,10 +242,10 @@ body{
   background-color: var(--color5);
 }
 
-svg {
+#div22 svg {
     pointer-events: none;
 }
-svg g{
+#div22 svg g{
   pointer-events: all;
 }
 /* Create the checkmark/indicator (hidden when not checked) */
