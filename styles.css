@@ -275,6 +275,20 @@ padding-top: 12px;
   display: block;
 }
 
+.tooltip {
+    position: absolute;
+    text-align: center;
+    /* width: 60px; */
+    /* height: 28px; */
+    padding: 2px;
+    font: 12px sans-serif;
+    background: var(--color1);
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+
 /* Style the checkmark/indicator */
 .tickbox .checkmark:after {
   left: 8px;

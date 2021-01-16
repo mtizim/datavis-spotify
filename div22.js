@@ -24,7 +24,8 @@ function updateScatter() {
 
     xval = d3.select("#d22xval").node().value
     yval = d3.select("#d22yval").node().value
-
+    xvalname = xval
+    yvalname = yval
 
     data = dataArray.filter((el) => (!isNaN(el[xval] && !isNaN(el[yval]))))
     if (yval == "duration") {
@@ -103,6 +104,12 @@ function updateScatter() {
             .data(data)
             .enter()
             .append("g")
+
+        var div = d3.select("#d22scatter").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+
         d22svg.data(data).enter()
         var tmp = dots.append("d22svg:image")
             .attr("xlink:href", function (d) { return d[0]["img"] })
@@ -111,6 +118,21 @@ function updateScatter() {
             .attr("name", (d) => d["title"])
             .attr("clip-path", d => "url(#scatterCircle" + d[0].id + ")")
             .attr("width", size)
+            .on("mouseover", function (d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                div.html("<b>" + d["0"]["name"] + "</b><br/>" +
+                    capitalize(xvalname) + ": " + d[1] + "</br > " +
+                    capitalize(yvalname) + ": " + d[2] + "</br > ")
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
         tmp.transition()
             .duration(500)
             .attr("x", function (d) {
@@ -119,7 +141,7 @@ function updateScatter() {
             .attr("y", function (d) {
                 return d22y(d[2])
             })
-        tmp.append("title").html(function (d) { return d[0]["author"] + " - " + d[0]["name"] })
+        // tmp.append("title").html(function (d) { return d[0]["author"] + " - " + d[0]["name"] })
         _d22create = false
         updateScatter();
     }
